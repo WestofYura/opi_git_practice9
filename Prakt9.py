@@ -1,54 +1,71 @@
 CARS_COUNT = 5
 PASSENGER_TYPE = "легковий"
 
-cars = {}
 
-for car_number in range(CARS_COUNT):
-    print("Автомобіль", car_number + 1)
-
+def input_car(type_prompt):
     model = input("Назва моделі: ")
-    car_type = input("Тип (легковий/вантажний): ")
+    car_type = input(type_prompt)
     price = float(input("Вартість: "))
+    return model, car_type, price
 
+
+def read_cars(count):
+    cars = {}
+    for car_number in range(count):
+        print("Автомобіль", car_number + 1)
+        model, car_type, price = input_car("Тип (легковий/вантажний): ")
+        cars[model] = (car_type, price)
+    return cars
+
+
+def print_cars(cars):
+    for model, car_info in cars.items():
+        print(model, "->", car_info)
+
+
+def calculate_average_price(cars, wanted_type):
+    total_price = 0
+    count = 0
+    for car_type, price in cars.values():
+        if car_type.lower() == wanted_type:
+            total_price += price
+            count += 1
+    if count == 0:
+        return None
+    return total_price / count
+
+
+def delete_car(cars, model):
+    if model in cars:
+        del cars[model]
+        return True
+    return False
+
+
+def main():
+    cars = read_cars(CARS_COUNT)
+
+    print("\nВсі дані:")
+    print_cars(cars)
+
+    average_price = calculate_average_price(cars, PASSENGER_TYPE)
+    if average_price is not None:
+        print("\nСередня вартість легкових автомобілів:", average_price)
+    else:
+        print("\nЛегкових автомобілів немає")
+
+    print("\nДодавання нового запису")
+    model, car_type, price = input_car("Тип: ")
     cars[model] = (car_type, price)
 
-# Виведення словника
-print("\nВсі дані:")
-for model, car_info in cars.items():
-    print(model, "->", car_info)
+    model_to_delete = input("\nЯку модель видалити: ")
+    if delete_car(cars, model_to_delete):
+        print("Запис видалено")
+    else:
+        print("Такої моделі немає")
 
-total_price = 0
-passenger_count = 0
+    print("\nСловник за відсортованими ключами:")
+    print_cars(dict(sorted(cars.items())))
 
-for model, car_info in cars.items():
-    car_type, price = car_info
-    if car_type.lower() == PASSENGER_TYPE:
-        total_price += price
-        passenger_count += 1
 
-if passenger_count > 0:
-    average_price = total_price / passenger_count
-    print("\nСередня вартість легкових автомобілів:", average_price)
-else:
-    print("\nЛегкових автомобілів немає")
-
-print("\nДодавання нового запису")
-
-new_model = input("Назва моделі: ")
-new_type = input("Тип: ")
-new_price = float(input("Вартість: "))
-
-cars[new_model] = (new_type, new_price)
-
-model_to_delete = input("\nЯку модель видалити: ")
-
-if model_to_delete in cars:
-    del cars[model_to_delete]
-    print("Запис видалено")
-else:
-    print("Такої моделі немає")
-
-print("\nСловник за відсортованими ключами:")
-
-for model in sorted(cars.keys()):
-    print(model, "->", cars[model])
+main()
