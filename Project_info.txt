@@ -1,2 +1,3 @@
 Коломієць Юрій Олександрович, група пс-46 4 курс
 Етап розробки: налаштування Git і GitHub
+Current stage: Git branching practice
