@@ -1,9 +1,9 @@
-n = 5
+cars_count = 5
 
 cars = {}
 
-for i in range(n):
-    print("Автомобіль", i + 1)
+for car_number in range(cars_count):
+    print("Автомобіль", car_number + 1)
 
     model = input("Назва моделі: ")
     car_type = input("Тип (легковий/вантажний): ")
@@ -13,20 +13,21 @@ for i in range(n):
 
 # Виведення словника
 print("\nВсі дані:")
-for model, info in cars.items():
-    print(model, "->", info)
+for model, car_info in cars.items():
+    print(model, "->", car_info)
 
-sum_price = 0
-count = 0
+total_price = 0
+passenger_count = 0
 
-for model, info in cars.items():
-    if info[0].lower() == "легковий":
-        sum_price += info[1]
-        count += 1
+for model, car_info in cars.items():
+    car_type, price = car_info
+    if car_type.lower() == "легковий":
+        total_price += price
+        passenger_count += 1
 
-if count > 0:
-    average = sum_price / count
-    print("\nСередня вартість легкових автомобілів:", average)
+if passenger_count > 0:
+    average_price = total_price / passenger_count
+    print("\nСередня вартість легкових автомобілів:", average_price)
 else:
     print("\nЛегкових автомобілів немає")
 
@@ -38,10 +39,10 @@ new_price = float(input("Вартість: "))
 
 cars[new_model] = (new_type, new_price)
 
-delete_model = input("\nЯку модель видалити: ")
+model_to_delete = input("\nЯку модель видалити: ")
 
-if delete_model in cars:
-    del cars[delete_model]
+if model_to_delete in cars:
+    del cars[model_to_delete]
     print("Запис видалено")
 else:
     print("Такої моделі немає")
