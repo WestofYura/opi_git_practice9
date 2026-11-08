@@ -1,8 +1,9 @@
-cars_count = 5
+CARS_COUNT = 5
+PASSENGER_TYPE = "легковий"
 
 cars = {}
 
-for car_number in range(cars_count):
+for car_number in range(CARS_COUNT):
     print("Автомобіль", car_number + 1)
 
     model = input("Назва моделі: ")
@@ -21,7 +22,7 @@ passenger_count = 0
 
 for model, car_info in cars.items():
     car_type, price = car_info
-    if car_type.lower() == "легковий":
+    if car_type.lower() == PASSENGER_TYPE:
         total_price += price
         passenger_count += 1
 
