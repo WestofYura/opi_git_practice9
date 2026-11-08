@@ -1,0 +1,19 @@
+Toyota Camry
+легковий
+25000.5
+Ford Transit
+вантажний
+30000
+BMW X5
+легковий
+50000
+Mazda 3
+Легковий
+18000.25
+Volvo FH
+вантажний
+90000
+Audi A4
+легковий
+35000
+Ford Transit

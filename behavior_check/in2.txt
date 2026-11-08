@@ -1,0 +1,19 @@
+MAN TGX
+вантажний
+70000
+Scania R
+вантажний
+85000.5
+Volvo FH
+вантажний
+90000
+DAF XF
+вантажний
+65000
+Iveco Daily
+вантажний
+40000
+Mercedes Actros
+вантажний
+80000
+Lada
