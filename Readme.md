@@ -2,3 +2,5 @@
 ## Основні функції
 Remote update: repository synchronized with GitHub.
 ## Практичне заняття №9 виконано
+## Development
+This project uses Git branches for isolated changes.
