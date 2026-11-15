@@ -77,4 +77,5 @@ def main():
     print_cars(dict(sorted(cars.items())))
 
 
-main()
+if __name__ == "__main__":
+    main()
