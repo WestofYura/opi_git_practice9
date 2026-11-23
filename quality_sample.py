@@ -12,8 +12,6 @@ def CalcOrderTotal(items, userType, debug=False):
         total = total - total * DISCOUNT_RATE
     elif userType == "teacher":
         total = total - total * DISCOUNT_RATE
-    elif userType == "vip":
-        total = total - total * vip_rate
     if debug == True:
         print("Calculated total:", total)
     return total
