@@ -1,5 +1,3 @@
-import os
-import math
 
 DISCOUNT_RATE = 0.10
 
