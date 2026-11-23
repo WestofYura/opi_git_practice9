@@ -1,0 +1,5 @@
+Prakt9.py:1:89: E501 Line too long (92 > 88)
+Prakt9.py:8:89: E501 Line too long (89 > 88)
+Prakt9.py:16:89: E501 Line too long (89 > 88)
+Prakt9.py:36:89: E501 Line too long (100 > 88)
+Found 4 errors.
